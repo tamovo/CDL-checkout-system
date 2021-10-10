@@ -1,7 +1,7 @@
 import java.util.*;
-public class Checkout{
-    public static void main(String args[])
-	{
+
+public class Checkout {
+    public static void main(String args[]) {
         Set<Item> items = new HashSet<Item>();
 
         Item itemA = new Item();
@@ -34,34 +34,33 @@ public class Checkout{
         itemD.setPrice(15.0);
         items.add(itemD);
 
-
         Basket basket = new Basket();
         basket.addOffer(offerA);
         basket.addOffer(offerB);
 
         String inputItem = "";
-        
-        Scanner sc = new Scanner(System.in);    
 
-        while(true){
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
 
             System.out.println("Enter item name");
             inputItem = sc.nextLine();
-            //input 0 to exit
-            if(inputItem.equals("0")){
+            // input 0 to exit
+            if (inputItem.equals("0")) {
                 break;
             }
 
             inputItem = inputItem.toUpperCase();
-            for(Item item: items){
-                if(inputItem.equals(item.getName())){
+            for (Item item : items) {
+                if (inputItem.equals(item.getName())) {
                     basket.addItem(item);
                     basket.setTotalPrice(basket.calculateTotalPrice(basket.basketItems));
                 }
             }
 
             System.out.println(basket.toString());
-    
+
         }
 
     }
